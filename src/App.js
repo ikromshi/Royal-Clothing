@@ -1,41 +1,21 @@
-import Directory from "./components/directory/directory.component";
-import CategoryItem from "./components/category-item/category-item.component";
-import "./categories.styles.scss"
+import { Routes, Route } from "react-router-dom";
+import Navigation from "./routes/navigation/navigation.component";
+import Home from "./routes/home/home.component";
+
+const Shop = () => {
+  return <h1>Start shopping</h1>
+}
 
 const App = () => {
-
-  const categories = [
-    {
-      id: 1,
-      title: "Hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png"
-    },
-    {
-      id: 2,
-      title: "Jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png"
-    },
-    {
-      id: 3,
-      title: "Sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png"
-    },
-    {
-      id: 4,
-      title: "Women's",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png"
-    },
-    {
-      id: 5,
-      title: "Men's",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png"
-    }
-  ]
-  
-
   return (
-    <Directory categories={categories}/>
-  );
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index={true} element={<Home />}></Route> {/**index(=true) tell the page to load the Home with Navigation */}
+        <Route path="shop" element={<Shop />}></Route> 
+          {/**child el doesn't require a /; import { Outlet } to make it stay */}
+      </Route>
+    </Routes>
+  )
 }
 
 export default App;
