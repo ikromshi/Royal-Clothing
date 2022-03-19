@@ -1,21 +1,10 @@
-import { useEffect } from "react";
-import { getRedirectResult } from "firebase/auth"; // both are used, so that the page doesn;t unmount when redirected
-
 import {
-    auth,
     signInWithGooglePopup, 
-    signInWithGoogleRedirect, 
     createUserDocFromAuth 
 } from "../../utils/firebase/firebase.utils";  
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component"
 
 const SignIn = () => {
-    useEffect(async () => {
-        const response = await getRedirectResult(auth);
-        if (response) {
-            createUserDocFromAuth(response.user);
-        }
-    }, [])
-
     const logGoogleUser = async () => {
         const response = await signInWithGooglePopup();
         const userDocRef = await createUserDocFromAuth(response.user);
@@ -27,9 +16,7 @@ const SignIn = () => {
             <button onClick={logGoogleUser}>
                 Sign in with Google Pop up
             </button>
-            <button onClick={signInWithGoogleRedirect}>
-                Sign in with Google Redirect
-            </button>
+            <SignUpForm />
         </div>
     )
 }
