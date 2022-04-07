@@ -1,7 +1,7 @@
 import "./navigation.styles.scss";
 
-import { Outlet, Link } from "react-router-dom"; // Wrapping elements with Fragment eqv of <> </>
-import { Fragment } from "react";
+import { Outlet, Link } from "react-router-dom";
+import { Fragment } from "react"; // Wrapping elements with Fragment eqv of <> </>
 import { ReactComponent as CrownLogo} from "../../assets/crown.svg"; {/** React allows SVG's to be imported as components */}
 
 const Navigation = () => {
