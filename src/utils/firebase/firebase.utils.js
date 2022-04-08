@@ -3,7 +3,8 @@ import { getFirestore,  doc, getDoc, setDoc } from "firebase/firestore";
 import { getAuth,  
         signInWithPopup, 
         GoogleAuthProvider, 
-        createUserWithEmailAndPassword 
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword
 } from "firebase/auth";
 
 
@@ -78,6 +79,12 @@ export const createAuthUserWithEmailAndPwrd = async(email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
 }
 
+
+export const signInAuthUserWithEmailAndPwrd = async(email, password) => {
+    if (!email || !password) return;
+
+    return signInWithEmailAndPassword(auth, email, password);
+}
 /**
  * Firebase Config allows users to make CRUD actions on firebase
  */
