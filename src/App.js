@@ -1,4 +1,4 @@
-import Directory from "./components/directory/directory.component";
+import Directory from './components/directory/directory.component';
 import './App.css';
 
 function App() {
