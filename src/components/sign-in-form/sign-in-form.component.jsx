@@ -1,8 +1,9 @@
-import { useState } from "react";
-import FormInput from "../form-input/form-input.component";
-import "./sign-in-form.styles.scss";
-import Button from "../button/button.component";
+import { useState, useContext } from "react";
 import { signInWithGooglePopup, createUserDocFromAuth, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../contexts/user.context";
+import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
+import "./sign-in-form.styles.scss";
 
 
 const defaultFormFields = {
@@ -14,6 +15,9 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
     
+    // Using CONTEXT API to send user info to the Navigation component
+    const { setCurrentUser } = useContext(UserContext);
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
@@ -27,8 +31,8 @@ const SignInForm = () => {
         event.preventDefault();
         
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log("Response: ", response);
+            const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+            setCurrentUser(user); {/**Context API line */}
             resetFormFields();   
         } 
         catch(error) {
@@ -37,7 +41,7 @@ const SignInForm = () => {
                     alert("Incorrect password or email address");
                     break;
                 case "auth/user-not-found":
-                    alert("Incorrect password or email address");
+                    alert("User with this address doesn't exist");
                     break;
                 default:
                     console.log(error);
