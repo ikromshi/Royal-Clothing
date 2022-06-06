@@ -1,9 +1,10 @@
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { UserProvider } from './contexts/user.context';
-import { ProductsProvider } from './contexts/products.context';
 import { BrowserRouter } from "react-router-dom";
+import { UserProvider } from './contexts/user.context';
+import { CartProvider } from './contexts/cart.context';
+import { ProductsProvider } from './contexts/products.context';
 import './index.scss';
 
 import reportWebVitals from './reportWebVitals';
@@ -14,7 +15,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <ProductsProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
