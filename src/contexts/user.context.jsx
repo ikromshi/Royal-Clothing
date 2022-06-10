@@ -16,7 +16,6 @@ export const UserProvider = ({ children }) => {
             if (user) {
                 createUserDocFromAuth(user);
             }
-            console.log(user);
             setCurrentUser(user);
         });
         {/**unsubscribe is returned when the app unmounts to stop onAuthStateChanged listener from listening forever */}
