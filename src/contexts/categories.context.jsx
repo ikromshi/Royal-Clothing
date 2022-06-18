@@ -1,4 +1,3 @@
-import { addCollectionAndDocumets } from "../utils/firebase/firebase.utils.js";
 import { useState, useEffect, createContext } from "react";
 import { getCollectionAndDocuments } from "../utils/firebase/firebase.utils.js";
 
