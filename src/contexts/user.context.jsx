@@ -1,5 +1,6 @@
-import { createContext, useState, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { onAuthStateChangedListener, createUserDocFromAuth } from "../utils/firebase/firebase.utils";
+import { createAction } from "../utils/reducer/reducer.utils";
 
 // The actual value I want to access
 export const UserContext = createContext({
@@ -29,8 +30,8 @@ export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
   const { currentUser } = state; 
   const setCurrentUser = (user) => {
-    dispatch({type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user});
-  }
+    dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
+  };
 
   const value = { currentUser, setCurrentUser };
 
@@ -38,55 +39,11 @@ export const UserProvider = ({ children }) => {
     const unscubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createUserDocFromAuth(user);
-      }
+      };
       setCurrentUser(user);
     });
     {/**unsubscribe is returned when the app unmounts to stop onAuthStateChanged listener from listening forever */}
     return unscubscribe; {/**useEffect() will run whatever it returns from the callback when it unmounts */}
   }, [])
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>
-}
-
-/*
-const userReducer = (state, action) => {
-    return {
-        currentUser: null;
-    }
-}
-
-
-*/
-
-
-
-/*
-const userReducer = (state, action) => {
-  const { type, payload } = action;
-
-  switch(type) {
-    case "update_user":
-      return {...state, currentUser: payload};
-    default:
-      throw new Error("Wrong assignment");
-  }
-}
-
-const initialState = {currentUser: null};
-
-const userProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(userReducer, initialState);
-  const { currentUser } = state;
-
-  const setCurrentUser = (user) => {
-    dispatch({type: "updateUser", payload: user});
-  }
-}
-
-const value = {currentUser, setCurrentUser};
-
-return <UserContext.Provider value={value}> {children} </UserContext.Provider>
-
-
-
-
-*/
+};
