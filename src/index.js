@@ -1,5 +1,5 @@
 import { CategoriesProvider } from './contexts/categories.context';
-import { UserProvider } from './contexts/user.context';
+// import { UserProvider } from './contexts/user.context';
 import { CartProvider } from './contexts/cart.context';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
@@ -15,13 +15,13 @@ root.render(
   // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter>
-      <UserProvider>
+      {/* <UserProvider> */}
         <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
         </CategoriesProvider>
-      </UserProvider>
+      {/* </UserProvider> */}
     </BrowserRouter>
   </Provider>
   // </React.StrictMode>
