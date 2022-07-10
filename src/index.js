@@ -1,4 +1,4 @@
-import { CategoriesProvider } from './contexts/categories.context';
+// import { CategoriesProvider } from './contexts/categories.context';
 // import { UserProvider } from './contexts/user.context';
 import { CartProvider } from './contexts/cart.context';
 import { BrowserRouter } from "react-router-dom";
@@ -16,11 +16,11 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       {/* <UserProvider> */}
-        <CategoriesProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </CategoriesProvider>
+        {/* <CategoriesProvider> */}
+      <CartProvider>
+        <App />
+      </CartProvider>
+        {/* </CategoriesProvider> */}
       {/* </UserProvider> */}
     </BrowserRouter>
   </Provider>

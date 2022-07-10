@@ -11,6 +11,7 @@ import {  useEffect } from "react";
 
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const unscubscribe = onAuthStateChangedListener((user) => {
       if (user) {
