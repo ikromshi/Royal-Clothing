@@ -1,7 +1,24 @@
+import { createSelector } from "reselect";
 
 
-// Resetting cartCount every time "cartItems" changes;
-const newCartCount = newCartItems.reduce((preVal, curVal) => preVal + curVal.quantity, 0);
-  
-// Keeping track of the total price on the checkout page
-const newCartTotal = newCartItems.reduce((total, cartItem) => total + cartItem.quantity*cartItem.price, 0);
+const selectCartReducer = (state) => state.cart;
+
+export const selectCartItems = createSelector(
+  [selectCartReducer], 
+  (cart) => cart.cartItems
+);
+
+export const selectIsCartOpen = createSelector(
+  [selectCartReducer],
+  (cart) => cart.isCartOpen
+);
+
+export const selectCartCount = createSelector(
+  [selectCartItems], 
+  (cartItems) => cartItems.reduce((preVal, curVal) => preVal + curVal.quantity, 0)
+);
+
+export const selectCartTotal = createSelector(
+  [selectCartItems], 
+  (cartItems) => cartItems.reduce((total, cartItem) => total + cartItem.quantity*cartItem.price, 0)
+);

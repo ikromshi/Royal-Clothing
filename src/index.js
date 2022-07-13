@@ -1,6 +1,6 @@
 // import { CategoriesProvider } from './contexts/categories.context';
 // import { UserProvider } from './contexts/user.context';
-import { CartProvider } from './contexts/cart.context';
+// import { CartProvider } from './contexts/cart.context';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom/client';
@@ -17,9 +17,9 @@ root.render(
     <BrowserRouter>
       {/* <UserProvider> */}
         {/* <CategoriesProvider> */}
-      <CartProvider>
-        <App />
-      </CartProvider>
+      {/* <CartProvider> */}
+      <App />
+      {/* </CartProvider> */}
         {/* </CategoriesProvider> */}
       {/* </UserProvider> */}
     </BrowserRouter>
