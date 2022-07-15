@@ -5,8 +5,17 @@ import storage from "redux-persist/lib/storage";
 import { rootReducer } from "./root-reducer";
 import { logger } from "redux-logger";
 
-const middleWares = [logger];
-const composedEnhancers = compose(applyMiddleware(...middleWares));
+// [2 === 3 && {a: "str"}].filter(Boolean) -> []
+// [3 === 3 && {a: "str"}].filter(Boolean) -> [{a: "str"}]
+const middleWares = [process.env.NODE_ENV === "development" && logger].filter(Boolean);
+// enable the logger only in development mode
+
+// enable redux devtools only when the app is in developmentxs
+const composeEnhacer = (
+  process.env.NODE_ENV === "development" && 
+  window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || 
+  compose;
+const composedEnhancers = composeEnhacer(applyMiddleware(...middleWares));
 
 const persistConfig = {
   key: "root",
