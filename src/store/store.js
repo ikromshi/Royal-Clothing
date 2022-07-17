@@ -4,10 +4,12 @@ import { compose, applyMiddleware } from "redux";
 import storage from "redux-persist/lib/storage";
 import { rootReducer } from "./root-reducer";
 import { logger } from "redux-logger";
+import thunk from "redux-thunk";
 
 // [2 === 3 && {a: "str"}].filter(Boolean) -> []
 // [3 === 3 && {a: "str"}].filter(Boolean) -> [{a: "str"}]
-const middleWares = [process.env.NODE_ENV === "development" && logger].filter(Boolean);
+const middleWares = [process.env.NODE_ENV === "development" && logger, thunk,]
+  .filter(Boolean);
 // enable the logger only in development mode
 
 // enable redux devtools only when the app is in developmentxs
