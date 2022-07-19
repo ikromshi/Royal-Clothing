@@ -2,13 +2,18 @@ import { persistStore, persistReducer } from "redux-persist";
 import { legacy_createStore as createStore } from "redux";
 import { compose, applyMiddleware } from "redux";
 import storage from "redux-persist/lib/storage";
+import createSagaMiddleware from "redux-saga";
 import { rootReducer } from "./root-reducer";
+import { rootSaga } from "./root-saga";
 import { logger } from "redux-logger";
-import thunk from "redux-thunk";
+// import thunk from "redux-thunk";
+
+
+const sagaMiddleware = createSagaMiddleware();
 
 // [2 === 3 && {a: "str"}].filter(Boolean) -> []
 // [3 === 3 && {a: "str"}].filter(Boolean) -> [{a: "str"}]
-const middleWares = [process.env.NODE_ENV === "development" && logger, thunk,]
+const middleWares = [process.env.NODE_ENV === "development" && logger, sagaMiddleware]
   .filter(Boolean);
 // enable the logger only in development mode
 
@@ -25,7 +30,10 @@ const persistConfig = {
   whitlist: ["cart"]
 };
 
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer, undefined, composedEnhancers);
 export const persistor = persistStore(store);
+
+sagaMiddleware.run(rootSaga);
