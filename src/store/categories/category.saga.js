@@ -6,7 +6,8 @@ import { CATEGORIES_ACTION_TYPES } from "./category.types";
 // Generator functions in categoriesSaga;
 export function* fetchCategoriesAsync() {
   try {
-    const categoriesArray = yield call(getCollectionAndDocuments());
+    const categoriesArray = yield call(getCollectionAndDocuments);
+    console.log("FETCHING CATEGORIES")
     yield put(fetchCategoriesSuccess(categoriesArray)); // put() = dispatch();
   } catch(error) {
     yield put(fetchCategoriesFailed(error));

@@ -2,7 +2,7 @@ import { CATEGORIES_ACTION_TYPES } from "./category.types";
 
 const INITIAL_STATE = {
   categories: [],
-  isLoading: [], // is data in the loading stage with redux thunk?
+  isLoading: null, // is data in the loading stage with redux thunk?
   error: null // potential error in the fetching process of the async function
 };
 
