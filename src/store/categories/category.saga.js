@@ -7,13 +7,17 @@ import { CATEGORIES_ACTION_TYPES } from "./category.types";
 export function* fetchCategoriesAsync() {
   try {
     const categoriesArray = yield call(getCollectionAndDocuments);
-    console.log("FETCHING CATEGORIES")
     yield put(fetchCategoriesSuccess(categoriesArray)); // put() = dispatch();
   } catch(error) {
     yield put(fetchCategoriesFailed(error));
   };
 };
 
+/**
+ * Listens to each action dispatched to the store and runs the generator
+ * function (fetchCategoriesAsync()) when the pattern (1st param) matches
+ * the type of the action 
+*/
 export function* onFetchCategories() {
   yield takeLatest(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START, fetchCategoriesAsync);
 };

@@ -1,8 +1,7 @@
-import { onAuthStateChangedListener, createUserDocFromAuth } from "./utils/firebase/firebase.utils";
+import { onAuthStateChangedListener, createUserDocFromAuth, getCurrentUser } from "./utils/firebase/firebase.utils";
 import Authentication from "./routes/authentication/authentication.component";
 import Navigation from "./routes/navigation/navigation.component";
 import CheckOut from "./routes/check-out/check-out.component";
-import { setCurrentUser } from "./store/user/user.action";
 import { Routes, Route } from "react-router-dom"; 
 import Home from "./routes/home/home.component";
 import Shop from "./routes/shop/shop.component";
@@ -13,14 +12,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unscubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocFromAuth(user);
-      };
-      dispatch(setCurrentUser(user));
-    });
-    {/**unsubscribe is returned when the app unmounts to stop onAuthStateChanged listener from listening forever */}
-    return unscubscribe; {/**useEffect() will run whatever it returns from the callback when it unmounts */}
+    getCurrentUser().then(user => console.log(user));
   }, [])
 
   return ( 
