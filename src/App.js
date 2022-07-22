@@ -1,7 +1,7 @@
-import { onAuthStateChangedListener, createUserDocFromAuth, getCurrentUser } from "./utils/firebase/firebase.utils";
 import Authentication from "./routes/authentication/authentication.component";
 import Navigation from "./routes/navigation/navigation.component";
 import CheckOut from "./routes/check-out/check-out.component";
+import { checkUserSession } from "./store/user/user.action";
 import { Routes, Route } from "react-router-dom"; 
 import Home from "./routes/home/home.component";
 import Shop from "./routes/shop/shop.component";
@@ -12,7 +12,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getCurrentUser().then(user => console.log(user));
+    dispatch(checkUserSession());
   }, [])
 
   return ( 
