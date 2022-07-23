@@ -15,16 +15,15 @@ export const CartDropdownContainer = styled.div`
   top: 90px;
   right: 40px;
   z-index: 5;
+  align-items: center;
 
-  ${BaseButton}, ${GoogleSignInButton}, ${InvertedButton} {
-    margin-top: auto;
-    font-size: 13px;
-    &:hover {
-      font-size: 13px;
-      margin-top: auto;
-    }
+  ${BaseButton},
+  ${GoogleSignInButton},
+  ${InvertedButton} {
+    margin-top: 10px;
+    font-size: 15px;
   }
-`
+`;
 
 export const EmptyMessage = styled.div`
   font-size: 18px;
