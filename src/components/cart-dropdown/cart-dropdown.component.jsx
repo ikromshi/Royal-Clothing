@@ -1,15 +1,26 @@
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Button from "../button/button.component";
-import CartItem from "../cart-item/cart-item.component";
-import { selectCartItems } from "../../store/cart/cart.selector";
 import {CartDropdownContainer, EmptyMessage, CartItems} from  "./cart-dropdown.styles.jsx";
+import { selectCartItems, selectIsCartOpen } from "../../store/cart/cart.selector";
+import { setIsCartOpen } from "../../store/cart/cart.action.js";
+import CartItem from "../cart-item/cart-item.component";
+import Button from "../button/button.component";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const CartDropdown = () => {
-    const cartItems = useSelector(selectCartItems);
+    const dispatch = useDispatch();
 
+    const cartItems = useSelector(selectCartItems);
+    const isCartOpen = useSelector(selectIsCartOpen);
+
+    const openCart = () => dispatch(setIsCartOpen(true));
+    const closeCart = () => dispatch(setIsCartOpen(false));
+    
     return (
-        <CartDropdownContainer>
+        <CartDropdownContainer 
+        onMouseEnter={openCart}
+        onMouseLeave={closeCart}
+        >
             <CartItems>
                 {cartItems.length ? (cartItems.map(item => <CartItem key={item.id} cartItem={item}></CartItem>))
                 : (<EmptyMessage>Your cart is empty</EmptyMessage>)}
