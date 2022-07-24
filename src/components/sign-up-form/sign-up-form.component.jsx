@@ -1,4 +1,3 @@
-import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from "../../utils/firebase/firebase.utils";
 import {SignUpContainer, NoAccount} from "./sign-up-form.styles";
 import { signUpStart } from "../../store/user/user.action";
 import FormInput from "../form-input/form-input.component";

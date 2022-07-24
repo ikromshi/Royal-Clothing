@@ -3,12 +3,8 @@ import PaymentForm from "../../components/payment-form/payment-form.component";
 import { selectCartTotal, selectCartItems } from "../../store/cart/cart.selector";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import { useSelector } from "react-redux";
-// import { useContext } from "react";
-// import { CartContext } from "../../contexts/cart.context";
 
 const CheckOut = () => {
-    // const { cartItems, cartTotal } = useContext(CartContext);
-
     const cartItems = useSelector(selectCartItems);
     const cartTotal = useSelector(selectCartTotal);
 
