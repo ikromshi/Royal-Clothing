@@ -9,6 +9,7 @@ export type Action<T> = {
   type: T
 };
 
+// Function Overload
 export function createAction<T extends string, P>(type: T, paylaod: P): ActionWithPaylaod<T, P>;
 
 export function createAction<T extends string>(type: T, payload: void): Action<T>;
