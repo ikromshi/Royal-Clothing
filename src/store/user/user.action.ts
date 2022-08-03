@@ -1,4 +1,5 @@
-import { AdditionalUserInfo, User } from "firebase/auth";
+import { User } from "firebase/auth";
+import { OtherInfo, UserData } from "../../utils/firebase/firebase.utils";
 import { createAction } from "../../utils/reducer/reducer.utils";
 import { USER_ACTION_TYPES } from "./user.types";
 
@@ -14,7 +15,7 @@ export const googleSignInStart = () =>
 export const emailSignInStart = (email: string, password: string) => 
   createAction(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, {email, password});
 
-export const signInSuccess = (user: string) => 
+export const signInSuccess = (user: UserData & {id: string}) => 
   createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user);
 
 export const signInFailed = (error: Error) => 
@@ -23,7 +24,7 @@ export const signInFailed = (error: Error) =>
 export const signUpStart = (email: string, password: string, displayName: string) => 
   createAction(USER_ACTION_TYPES.SIGN_UP_START, {email, password, displayName});
 
-export const signUpSuccess = (user: User, additionalDetails: AdditionalUserInfo ) => 
+export const signUpSuccess = (user: User, additionalDetails: OtherInfo & {password: string} ) => 
   createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, {user, additionalDetails});
 
 export const signUpFailed = (error: Error) => 
