@@ -1,4 +1,4 @@
-import {CartDropdownContainer, EmptyMessage, CartItems} from  "./cart-dropdown.styles.jsx";
+import {CartDropdownContainer, EmptyMessage, CartItems} from  "./cart-dropdown.styles";
 import { selectCartItems, selectIsCartOpen } from "../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../store/cart/cart.action";
 import CartItem from "../cart-item/cart-item.component";
