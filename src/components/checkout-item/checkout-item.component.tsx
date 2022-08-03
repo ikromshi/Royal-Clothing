@@ -12,8 +12,14 @@ import { CheckoutItemContainer,
         Value,
         RemoveButton,
 } from "./checkout-item.styles";
+import { CartItem } from "../../store/cart/cart.types";
+import { FC } from "react";
 
-const CheckoutItem = ({ cartItem }) => {
+type CheckoutItemProps = {
+    cartItem: CartItem;
+};
+
+const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem }) => {
     // const { clearItemFromCart, addItemToCart, removeItemFromCart } = useContext(CartContext);
     const { name, imageUrl, price, quantity  } = cartItem;
     
