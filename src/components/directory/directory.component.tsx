@@ -1,6 +1,6 @@
 import { Key } from "react";
 import CategoryItem from "../category-item/category-item.component";
-import { DirectoryContainer } from "./directory.styles.jsx";
+import { DirectoryContainer } from "./directory.styles";
 
 export type DirectoryCategory = {
   id: Key;

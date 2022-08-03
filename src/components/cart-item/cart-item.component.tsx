@@ -1,4 +1,4 @@
-import { CartItemContainer, ItemDetails } from "./cart-item.styles.jsx";
+import { CartItemContainer, ItemDetails } from "./cart-item.styles";
 import { CartItem } from "../../store/cart/cart.types.js";
 
 type CartItemProps = {

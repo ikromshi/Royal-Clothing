@@ -1,6 +1,6 @@
 import { selectCategoriesMap, selectCategoriesIsLoading } from "../../store/categories/category.selector";
 import ProductCard from "../../components/product-card/product-card.component";
-import { CategoryContainerRouter, CategoryTitle } from "./category.styles.jsx";
+import { CategoryContainerRouter, CategoryTitle } from "./category.styles";
 import Spinner from "../../components/spinner/spinner.component";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
