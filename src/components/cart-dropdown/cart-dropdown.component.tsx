@@ -19,8 +19,7 @@ const CartDropdown = () => {
     return (
         <CartDropdownContainer 
         onMouseEnter={openCart}
-        onMouseLeave={closeCart}
-        >
+        onMouseLeave={closeCart}>
             <CartItems>
                 {cartItems.length ? (cartItems.map(item => <CartItem key={item.id} cartItem={item}></CartItem>))
                 : (<EmptyMessage>Your cart is empty</EmptyMessage>)}
