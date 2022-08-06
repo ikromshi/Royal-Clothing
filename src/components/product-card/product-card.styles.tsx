@@ -15,6 +15,12 @@ export const ProductCardContainer = styled.div`
     margin-bottom: 5px;
   }
 
+  @media screen and (max-width: 800px) {
+    margin-bottom: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
   button {
     width: 80%;
     opacity: 0.7;
