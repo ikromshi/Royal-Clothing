@@ -14,11 +14,12 @@ const CategoryItem: FC<CategoryItemProps> = ({ category }) => {
 
     return (
       <CategoryContainer onClick={onNavigateHandler}>
-        <BackgroundImage imageUrl={imageUrl}/>
-        <BodyContainer>
-          <h2>{title}</h2>
-          <p>Shop now</p>
-        </BodyContainer>
+        <BackgroundImage imageUrl={imageUrl} />
+          <BodyContainer>
+            <h2>{title}</h2>
+            <p>Shop now</p>
+          </BodyContainer>
+        {/* </BackgroundImage> */}
       </CategoryContainer>
     )
 }

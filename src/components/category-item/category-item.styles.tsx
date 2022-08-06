@@ -15,6 +15,10 @@ export const BackgroundImage = styled.div<BackgroundImageProps>`
 export const BodyContainer = styled.div`
   height: 90px;
   padding: 0 25px;
+  @media screen and (max-width: 700px) {
+    padding: 10px;
+  };
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +50,7 @@ export const CategoryContainer = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  margin: 10px 7.5px 15px;
+  margin: 0 7.5px 15px;
   overflow: hidden;
 
   &:hover {
