@@ -1,5 +1,19 @@
 # Getting Started with Crown Clothing
 
+## What this project is:
+
+This is an E-commerce project originally written is JavaScript but recently re-written in Typescript. I hope that you enjoy playing around with it just as much as I enjoyed building it. The link to the website is here: https://crown-clothing-ikk.netlify.app/
+
+Many tools and libraries were used to build this project including, but not limited to: 
+ - ContextAPI (as an initial state management tool)
+ - Redux (later replaced ContextAPI)
+ - Firestore (for storing "dummy" store data and user info)
+ - Firebase (as an sign-up/sign-in authentication tool)
+ - Stripe API (for making payments for the selected "products")
+ - Sass (for the initial styling of the project)
+ - Styled Components (later replaced Sass)
+ ...
+ 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
