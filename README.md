@@ -1,4 +1,4 @@
-# Getting Started with Crown Clothing
+# Getting Started with Royal Clothing
 
 ## What this project is:
 
