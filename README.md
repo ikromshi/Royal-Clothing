@@ -2,7 +2,7 @@
 
 ## What this project is:
 
-This is an E-commerce project originally written is JavaScript but recently re-written in Typescript. I hope that you enjoy playing around with it just as much as I enjoyed building it. The link to the website is here: https://crown-clothing-ikk.netlify.app/
+This is an E-commerce project originally written in JavaScript but recently re-written in TypeScript. I hope that you enjoy playing around with it just as much as I enjoyed building it. The link to the website is here: https://crown-clothing-ikk.netlify.app/
 
 Many tools and libraries were used to build this project including, but not limited to: 
  - ContextAPI (as an initial state management tool)
