@@ -1,13 +1,13 @@
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { PaymentFormContainer, FormContainer, PaymentButton } from "./payment-form.styles";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { emptyItemsFromCart } from "../../store/cart/cart.action";
 import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { selectCartTotal } from "../../store/cart/cart.selector";
+import { StripeCardElement } from "@stripe/stripe-js";
+import { FormEvent, useState } from "react";
 import { useSelector  } from "react-redux";
 import { useDispatch } from "react-redux";
-import { FormEvent, useState } from "react";
-import { StripeCardElement } from "@stripe/stripe-js";
 
 const ifValidCardElement = (card: StripeCardElement | null): card is StripeCardElement => card !== null;
 const PaymentForm = () => {

@@ -1,10 +1,10 @@
 import {SignUpContainer, NoAccount} from "./sign-up-form.styles";
 import { signUpStart } from "../../store/user/user.action";
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
-import { useDispatch } from "react-redux";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { AuthError, AuthErrorCodes } from "firebase/auth";
+import Button from "../button/button.component";
+import { useDispatch } from "react-redux";
 
 const defaultFormFields = {
     displayName: "",

@@ -1,6 +1,6 @@
 import {BackgroundImage, BodyContainer, CategoryContainer } from "./category-item.styles";
-import { useNavigate } from "react-router-dom";
 import { DirectoryCategory } from "../directory/directory.component.js";
+import { useNavigate } from "react-router-dom";
 import { FC } from "react";
 
 type CategoryItemProps = {

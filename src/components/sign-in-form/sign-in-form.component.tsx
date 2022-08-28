@@ -2,8 +2,8 @@ import { SignUpContainer, HasAccount, ButtonsContainer } from "./sign-in-form.st
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
-import { useDispatch } from "react-redux";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useDispatch } from "react-redux";
 import { AuthError } from "firebase/auth";
 
 const defaultFormFields = {

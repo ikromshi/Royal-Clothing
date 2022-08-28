@@ -5,8 +5,8 @@
  * 3) google sign-in
  */
 
-import { ButtonHTMLAttributes, FC } from "react";
 import { BaseButton, GoogleSignInButton, InvertedButton, ButtonSpinner } from "./button.styles";
+import { ButtonHTMLAttributes, FC } from "react";
 
 export enum BUTTON_TYPE_CLASSES {
     base = "base",
