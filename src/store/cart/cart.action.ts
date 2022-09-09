@@ -51,8 +51,13 @@ export const addItemToCart = (cartItems: CartItem[], productToAdd: CategoryItem)
 };
 
 export const removeItemFromCart = (cartItems: CartItem[], productToRemove: CartItem) => {
-  const newCartItems = removeCartItem(cartItems, productToRemove);
-  return SetCartItems(newCartItems);
+  if (productToRemove.quantity === 0) {
+    clearItemFromCart(cartItems, productToRemove);
+    return SetCartItems(cartItems);
+  } else {
+    const newCartItems = removeCartItem(cartItems, productToRemove);
+    return SetCartItems(newCartItems);
+  }
 };
 
 export const clearItemFromCart = (cartItems: CartItem[], productToDelete: CartItem) => {
